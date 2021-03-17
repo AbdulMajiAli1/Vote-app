@@ -1,5 +1,6 @@
 <template>
   <div>
+	  <h1 class="text-3xl text-center mt-6 font-black text-">Choose Your Vote</h1>
     <div class="grid lg:grid-cols-3 gap-5 mt-12 grid-cols-1">
       <div class="px-4 shadow border p-6 mx-5" v-for="story in sortedStories" :key="story.id">
         <img :src="story.image" alt="" />

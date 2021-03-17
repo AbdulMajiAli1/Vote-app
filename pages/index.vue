@@ -4,10 +4,10 @@
 
 <script>
 import Cards from '~/components/cards.vue';
-import Majid from '~/components/Majid.vue';
+
 
 export default {
-  components: { Majid, Cards },
+  components: { Cards },
   };
 </script>
 
