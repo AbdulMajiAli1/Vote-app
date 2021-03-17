@@ -1,14 +1,17 @@
 <template>
-  <cards />
+  <div>
+    <cards />
+    <single />
+  </div>
 </template>
 
 <script>
 import Cards from '~/components/cards.vue';
-
+import Single from '~/components/single.vue';
 
 export default {
-  components: { Cards },
-  };
+  components: { Cards, Single },
+};
 </script>
 
 <style>
