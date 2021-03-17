@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex contianer justify-center mx-auto p-4">
+    <div class="flex contianer cardSorted mx-auto p-4">
       <div v-for="card in cardSorted" :key="card.id">
         <div class="bg-green-300 border flex m-2 p-6 rounded-md">
           <img :src="card.img" alt="" />

@@ -1,16 +1,18 @@
 <template>
   <div>
+    <board />
     <cards />
     <single />
   </div>
 </template>
 
 <script>
+import Board from '~/components/board.vue';
 import Cards from '~/components/cards.vue';
 import Single from '~/components/single.vue';
 
 export default {
-  components: { Cards, Single },
+  components: { Cards, Single, Board },
 };
 </script>
 
