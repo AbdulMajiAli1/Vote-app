@@ -17,6 +17,7 @@ import AddTask from './addTask.vue';
 import boardCol from './boardCol.vue';
 export default {
   components: { boardCol, AddTask },
+  
 };
 </script>
 

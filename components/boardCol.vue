@@ -1,57 +1,37 @@
 <template>
   <div>
-	  <div class="grid grid-cols-3">
-        <div class="m-2 shadow-md rounded-lg p-5" v-for="todo in todos" :key="todo.id">
-          <div class="p-2 text-center">
-            <h1 class="text-2xl py-3">
-              {{ todo.head }}
-            </h1>
-            <div class="py-3">
-              <span class="bg-gray-100 p-3 rounded-sm">
-                {{ todo.message }}
-              </span>
-            </div>
-            <input type="text" name="" class="w-40 bg-gray-50 p-1" />
-            <div class="pt-3">
-              <button class="bg-pink-300 px-3 py-2 rounded-md focus:outline-none text-white">
-                Edit
-              </button>
-              <button class="bg-blue-400 px-3 py-2 rounded-md focus:outline-none text-white">
-                Delete
-              </button>
-            </div>
-          </div>
+    <div class="grid grid-cols-3">
+      <div class="m-2 shadow-md rounded-lg p-5" v-for="col in sharedState.Seed" :key="col.id" @click="setCol(col.id)">
+        <div class="p-2 text-center">
+          <h1 class="text-2xl py-3">
+            {{ col.name }}
+          </h1>
+          <task v-for="task in col.tasks" :key="task.id" :task="task" :colId="col.id" />
         </div>
       </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { store } from '../store/store';
+import  task  from './task.vue';
 export default {
-data() {
+  components: { task },
+  
+  data() {
     return {
-      todos: [
-        {
-          id: 1,
-          head: 'To Do',
-          message: 'Vue Js Practice',
-        },
-        {
-          id: 2,
-          head: 'In Progress',
-          message: 'Vue Js Practice',
-        },
-        {
-          id: 1,
-          head: 'Done',
-          message: 'Vue Js Practice',
-        },
-      ],
+      sharedState: store.state,
     };
   },
-}
+  props: ['col'],
+  methods: {
+    setCol: function (colId) {
+      store.setActiveCol(colId);
+    }
+  },
+};
 </script>
 
 <style>
-
 </style>
